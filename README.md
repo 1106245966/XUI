@@ -7,3 +7,7 @@ demo/ 示例文件夹<br />
 fonts/ 字体文件夹<br />
 js/ JS文件夹<br />
 less/ LESS文件夹<br />
+
+# 关于我们
+  说明文档网址：http://xui.xfeng-studio.com/doc.html<br />
+  这里也可以加入我们的官方QQ群：591707207，有你的加入会让我们做的更好。
