@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <link href="../../../compile/css/xui.css" rel="stylesheet" type="text/css" />
+    <script src="../../../compile/js/xui/xui.js" xui></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body class="xui-padding">
+    <h3>默认可滑动选项卡</h3>
+    <div class="xui-tab" xui-slider="{ group : '.xui-tab-body-box', btn : '.xui-tab-nav > *', autoplay : false, isDrag : true }">
+        <ul class="xui-tab-nav">
+            <li class="xui-active">选项1</li>
+            <li>选项2</li>
+            <li>选项3</li>
+        </ul>
+        <div class="xui-tab-body">
+            <div class="xui-tab-body-box">
+                <div class="xui-tab-panel">
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                </div>
+                <div class="xui-tab-panel">
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                </div>
+                <div class="xui-tab-panel">
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="xui-margin-top">IOS可滑动选项卡</h3>
+    <div class="xui-tab xui-tab-enrich" xui-slider="{ group : '.xui-tab-body-box', btn : '.xui-tab-nav > *', autoplay : false, isDrag : true }">
+        <ul class="xui-tab-nav">
+            <li class="xui-active">选项1</li>
+            <li>选项2</li>
+            <li>选项3</li>
+        </ul>
+        <div class="xui-tab-body">
+            <div class="xui-tab-body-box">
+                <div class="xui-tab-panel">
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                </div>
+                <div class="xui-tab-panel">
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                </div>
+                <div class="xui-tab-panel">
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="xui-margin-top">切换选项卡</h3>
+    <div class="xui-tab xui-tab-switch">
+        <ul class="xui-tab-nav" xui-tab-nav-group="mytab" xui-tab-active="xui-active">
+            <li class="xui-active">选项1</li>
+            <li>选项2</li>
+            <li>选项3</li>
+        </ul>
+        <div class="xui-tab-body">
+            <div class="xui-tab-body-box" xui-tab-panel-group="mytab" xui-tab-active="xui-active">
+                <div class="xui-tab-panel xui-active">
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                </div>
+                <div class="xui-tab-panel">
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                </div>
+                <div class="xui-tab-panel">
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="xui-margin-top">IOS选项卡主题</h3>
+    <div class="xui-tab xui-tab-switch xui-tab-enrich">
+        <ul class="xui-tab-nav" xui-tab-nav-group="mytab2">
+            <li class="xui-active">选项1</li>
+            <li>选项2</li>
+            <li>选项3</li>
+        </ul>
+        <div class="xui-tab-body">
+            <div class="xui-tab-body-box" xui-tab-panel-group="mytab2">
+                <div class="xui-tab-panel xui-active">
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                </div>
+                <div class="xui-tab-panel">
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                </div>
+                <div class="xui-tab-panel">
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                    内容<br />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

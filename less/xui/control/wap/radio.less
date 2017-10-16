@@ -1,0 +1,221 @@
+
+
+/*
+//钩样式单选框
+.@{xui-prefix}radio, .@{xui-prefix}radio-hook, .@{xui-prefix}radio-hook-circle{
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  > * {
+    font-size: 1.6rem;
+  }
+
+  //禁用状态样式
+  &.@{xui-prefix}disabled, &[disabled]{
+    color: #e1e1e1;
+    > input[type='radio']{
+      &:checked + .@{xui-prefix}radio-icon:before{
+        color: #cccccc;
+      }
+      + .@{xui-prefix}radio-icon{
+        border: 1px solid #eeeeee;
+      }
+    }
+  }
+
+  > input[type='radio']{
+    display: none;
+    + .@{xui-prefix}radio-icon{
+      border: 1px solid #d9d9d9;
+      border-radius: 50%;
+      .padding(9px);
+      display: inline-block;
+      line-height: 0.6;
+      vertical-align: middle;
+      text-align: center;
+    }
+    &:checked{
+      + .@{xui-prefix}radio-icon{
+        .padding(4px);
+        border-color: @color-green;
+      }
+      + .@{xui-prefix}radio-icon:before{
+        display: inline-block;
+        color: @color-green;
+      }
+    }
+  }
+
+  .@{xui-prefix}radio-lable{
+    vertical-align: middle;
+  }
+}
+
+//默认单选框
+.@{xui-prefix}radio{
+  > input[type='radio']{
+    &:checked{
+      + .@{xui-prefix}radio-icon:before{
+        content: '';
+        display: inline-block;
+        background-color: @color-green;
+        width: 11px;
+        height: 11px;
+        .radius(50%);
+      }
+    }
+  }
+}
+
+.@{xui-prefix}radio-hook{
+  > input[type='radio']{
+    + .@{xui-prefix}radio-icon{
+      line-height: 0.8;
+      border: none;
+      font-size: 1.6rem;
+    }
+    &:checked{
+      + .@{xui-prefix}radio-icon{
+        .padding(0);
+        border: none;
+      }
+      + .@{xui-prefix}radio-icon:before{
+        content: "\f00c";
+      }
+    }
+  }
+}
+
+.@{xui-prefix}radio-hook-circle{
+  > input[type='radio']{
+    + .@{xui-prefix}radio-icon{
+      font-size: 22px;
+      line-height: 1;
+    }
+    &:checked{
+      + .@{xui-prefix}radio-icon{
+        .padding(0);
+        border-color: transparent;
+      }
+      + .@{xui-prefix}radio-icon:before{
+        content: "\f058";
+      }
+    }
+  }
+}
+*/
+
+
+//钩样式单选框
+.@{xui-prefix}radio, .@{xui-prefix}radio-hook, .@{xui-prefix}radio-hook-circle{
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  > * {
+    font-size: 1.6rem;
+  }
+
+  //禁用状态样式
+  &.@{xui-prefix}disabled, &[disabled]{
+    color: #e1e1e1;
+    > input[type='radio']{
+      &:checked + .@{xui-prefix}radio-icon:before{
+        color: #cccccc;
+      }
+      + .@{xui-prefix}radio-icon{
+        border: 1px solid #eeeeee;
+      }
+    }
+  }
+
+  > input[type='radio']{
+    display: none;
+    + .@{xui-prefix}radio-icon{
+      border: 1px solid #d9d9d9;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      line-height: 0.6;
+      vertical-align: middle;
+      text-align: center;
+      position: relative;
+    }
+    &:checked{
+      + .@{xui-prefix}radio-icon{
+        border-color: @color-green;
+      }
+      + .@{xui-prefix}radio-icon:before{
+        display: block;
+        color: @color-green;
+        position: absolute;
+        top:-50%;
+        bottom: -50%;
+        left:-50%;
+        right: -50%;
+        margin: auto;
+      }
+    }
+  }
+
+  .@{xui-prefix}radio-lable{
+    vertical-align: middle;
+  }
+}
+
+//默认单选框
+.@{xui-prefix}radio{
+  > input[type='radio']{
+    &:checked{
+      + .@{xui-prefix}radio-icon:before{
+        content: '';
+        display: inline-block;
+        background-color: @color-green;
+        width: 10px;
+        height: 10px;
+        .radius(50%);
+      }
+    }
+  }
+}
+
+.@{xui-prefix}radio-hook{
+  > input[type='radio']{
+    + .@{xui-prefix}radio-icon{
+      line-height: 0.8;
+      border: none;
+      font-size: 1.6rem;
+    }
+    &:checked{
+      + .@{xui-prefix}radio-icon{
+        .padding(0);
+        border: none;
+      }
+      + .@{xui-prefix}radio-icon:before{
+        content: "\f00c";
+        width: 20px;
+        height: 13px;
+      }
+    }
+  }
+}
+
+.@{xui-prefix}radio-hook-circle{
+  > input[type='radio']{
+    + .@{xui-prefix}radio-icon{
+      font-size: 24px;
+      line-height: 0.8;
+    }
+    &:checked{
+      + .@{xui-prefix}radio-icon{
+        .padding(0);
+        border-color: transparent;
+      }
+      + .@{xui-prefix}radio-icon:before{
+        content: "\f058";
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}

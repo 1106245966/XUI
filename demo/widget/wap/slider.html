@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播</title>
+    <link href="../../../compile/css/xui.css" rel="stylesheet" type="text/css" />
+    <script src="../../../compile/js/xui/xui.js" xui></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#js_slider2').slider({
+                group : '.xui-slider-group',          //滚动组
+                btn : '.xui-slider-btn',              //按钮
+                active : 'xui-active',                //选中样式
+                autoplay : true,                     //自动播放
+                isDrag : false,                      //是否拖动
+                autoHeight : 'one',                   //自动高度，是第一个高度（one）或者当前（current），false取消自动高度
+                speed : 5000                          //播放时间
+            });
+        });
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body class="xui-padding">
+    <h3>默认滚动轮播</h3>
+    <div class="xui-slider" xui-slider>
+        <ul class="xui-slider-group">
+            <li class="xui-slider-item"><img src="http://www.dcloud.io/hellomui/images/shuijiao.jpg" /></li>
+            <li class="xui-slider-item"><img src="http://www.dcloud.io/hellomui/images/shuijiao.jpg" /></li>
+            <li class="xui-slider-item"><img src="http://www.dcloud.io/hellomui/images/shuijiao.jpg" /></li>
+        </ul>
+        <ul class="xui-slider-btn-group">
+            <li class="xui-slider-btn xui-active"></li>
+            <li class="xui-slider-btn"></li>
+            <li class="xui-slider-btn"></li>
+        </ul>
+    </div>
+
+    <h3 class="xui-margin-top">带参数滚动轮播</h3>
+    <div class="xui-slider" xui-slider="{ speed : 1000 }">
+        <ul class="xui-slider-group">
+            <li class="xui-slider-item"><img src="http://www.dcloud.io/hellomui/images/shuijiao.jpg" /></li>
+            <li class="xui-slider-item"><img src="http://www.dcloud.io/hellomui/images/shuijiao.jpg" /></li>
+            <li class="xui-slider-item"><img src="http://www.dcloud.io/hellomui/images/shuijiao.jpg" /></li>
+        </ul>
+        <ul class="xui-slider-btn-group">
+            <li class="xui-slider-btn xui-active"></li>
+            <li class="xui-slider-btn"></li>
+            <li class="xui-slider-btn"></li>
+        </ul>
+    </div>
+
+    <h3 class="xui-margin-top">javascript操控滚动轮播</h3>
+    <div id="js_slider" class="xui-slider" xui-slider="{ group : '.xui-slider-group', btn : '.xui-slider-btn', active : 'xui-active', autoplay : true, isDrag : true, autoHeight : 'one', speed : 5000 }">
+        <ul class="xui-slider-group">
+            <li class="xui-slider-item"><img src="http://www.dcloud.io/hellomui/images/shuijiao.jpg" /></li>
+            <li class="xui-slider-item"><img src="http://www.dcloud.io/hellomui/images/shuijiao.jpg" /></li>
+            <li class="xui-slider-item"><img src="http://www.dcloud.io/hellomui/images/shuijiao.jpg" /></li>
+        </ul>
+        <ul class="xui-slider-btn-group">
+            <li class="xui-slider-btn xui-active"></li>
+            <li class="xui-slider-btn"></li>
+            <li class="xui-slider-btn"></li>
+        </ul>
+    </div>
+    <div class="xui-grid-avg-4 xui-fc">
+        <a href="#" class="xui-btn xui-btn-red" onclick="$('#js_slider').slider('prev');">上一个</a>
+        <a href="#" class="xui-btn xui-btn-red" onclick="$('#js_slider').slider('next');">下一个</a>
+        <a href="#" class="xui-btn xui-btn-red" onclick="$('#js_slider').slider('play');">播放</a>
+        <a href="#" class="xui-btn xui-btn-red" onclick="$('#js_slider').slider('stop');">停止</a>
+    </div>
+
+    <h3 class="xui-margin-top">javascript初始化滚动轮播</h3>
+    <div id="js_slider2" class="xui-slider">
+        <ul class="xui-slider-group">
+            <li class="xui-slider-item"><img src="http://www.dcloud.io/hellomui/images/shuijiao.jpg" /></li>
+            <li class="xui-slider-item"><img src="http://www.dcloud.io/hellomui/images/shuijiao.jpg" /></li>
+            <li class="xui-slider-item"><img src="http://www.dcloud.io/hellomui/images/shuijiao.jpg" /></li>
+        </ul>
+        <ul class="xui-slider-btn-group">
+            <li class="xui-slider-btn xui-active"></li>
+            <li class="xui-slider-btn"></li>
+            <li class="xui-slider-btn"></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>播放器</title>
+    <link href="../../../compile/css/xui.css" rel="stylesheet" type="text/css" />
+    <script src="../../../compile/js/xui/xui.js" xui></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script>
+        $(function () {
+            var video = $('video')[0];
+            
+            function fullScreen(type) {
+                var screenDic = [
+                    ["requestFullscreen", "exitFullscreen", "fullscreenElement", "fullscreenEnabled", "fullscreenchange", "fullscreenerror"],
+                    ["webkitRequestFullscreen", "webkitExitFullscreen", "webkitFullscreenElement", "webkitFullscreenEnabled", "webkitfullscreenchange", "webkitfullscreenerror"],
+                    ["webkitRequestFullScreen", "webkitCancelFullScreen", "webkitCurrentFullScreenElement", "webkitCancelFullScreen", "webkitfullscreenchange", "webkitfullscreenerror"],
+                    ["mozRequestFullScreen", "mozCancelFullScreen", "mozFullScreenElement", "mozFullScreenEnabled", "mozfullscreenchange", "mozfullscreenerror"],
+                    ["msRequestFullscreen", "msExitFullscreen", "msFullscreenElement", "msFullscreenEnabled", "MSFullscreenChange", "MSFullscreenError"]
+                ], screenName = '';
+                for(var i = 0; i < screenDic.length; i++){
+                    for(var j = 0; j < screenDic[i].length; j++){
+                        if(j % 2 === 0){
+                            var name = screenDic[i][j];
+                            if(name in video){
+                                screenName = screenDic[i][j];
+                                break;
+                            }
+                        }
+                    }
+                }
+                video[screenName]();
+            }
+
+            //开始暂停
+            $('.xui-player-control-play').on('click', function () {
+                if (video.paused) {
+                    video.play();
+                    $(this).addClass('xui-icon-pause');
+                } else {
+                    video.pause();
+                    $(this).removeClass('xui-icon-pause');
+                }
+            });
+
+            $('video').on('timeupdate', function() {
+                $('.xui-player-control-timebar').text($.getRemainTime(video.currentTime, '{Hour}:{Minute}:{Second}') + ' / '+ $.getRemainTime(video.duration, '{Hour}:{Minute}:{Second}'));
+                var progress = 100 * video.currentTime / video.duration;
+                $('.xui-player-progress-bar').css('width', progress + '%');
+            });
+
+            //全屏
+            $('.xui-player-control-screen').on('click', function() {
+                //console.log(document.fullscreen, document.mozFullScreen, document.webkitIsFullScreen, document.msFullscreenElement);
+
+                if ($(this).hasClass('xui-icon-compress')) {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    } else if (document.mozExitFullScreen) {
+                        document.mozExitFullScreen();
+                    } else if (document.webkitExitFullscreen) {
+                        document.webkitExitFullscreen();
+                    }
+                    $(this).removeClass('xui-icon-compress').addClass('xui-icon-expand');
+                } else {
+                    //fullScreen();
+                    $(this).removeClass('xui-icon-expand').addClass('xui-icon-compress');
+                }
+                return false;
+            });
+
+            $('.xui-player-progress-dot').drag(function (event, dd) {
+                var progressBar = $('.xui-player-progress-bar');
+                var player = $('.xui-player-progress');
+                var startPoint = progressBar.offset().left;
+                var centerDistance = $(dd.target).outerWidth();
+                var progress = ((dd.offsetX - startPoint + centerDistance) / player.outerWidth()) * 100;
+                progress = parseInt(progress);
+                progress = progress >= 100 ? 100 : progress;
+                progressBar.css('width', progress + '%');
+                video.currentTime = video.duration * (progress / 100);
+            }).drag('end', function (event, dd) {
+                var progressBar = $('.xui-player-progress-bar');
+                var player = $('.xui-player-progress');
+                var startPoint = progressBar.offset().left;
+                var centerDistance = $(dd.target).outerWidth() / 2;
+                var progress = ((dd.offsetX - startPoint + centerDistance) / player.outerWidth()) * 100;
+                progress = progress >= 100 ? 100 : progress;
+                video.currentTime = video.duration * (progress / 100);
+            });
+
+            /*$('.xui-player-progress').mousedown(function (e) {
+                var progressBar = $('.xui-player-progress-bar');
+                var player = $('.xui-player-progress');
+                var startPoint = progressBar.offset().left;
+                var centerDistance = $('.xui-player-progress-dot').outerWidth() / 2;
+                var progress = ((e.clientX - startPoint + centerDistance) / player.outerWidth()) * 100;
+                progress = parseInt(progress);
+                progress = progress >= 100 ? 100 : progress;
+                progressBar.css('width', progress + '%');
+                video.currentTime = video.duration * (progress / 100);
+            });*/
+
+            $('.xui-player-progress').drag('start', function (event, dd) {
+                var progressBar = $('.xui-player-progress-bar');
+                var player = $('.xui-player-progress');
+                var startPoint = progressBar.offset().left;
+                var centerDistance = $('.xui-player-progress-dot').outerWidth() / 2;
+                var clientX = dd.startX - dd.offsetX;
+                var progress = ((dd.offsetX + clientX + dd.deltaX - startPoint + centerDistance) / player.outerWidth()) * 100;
+                progress = parseInt(progress);
+                progress = progress >= 100 ? 100 : progress;
+                progressBar.css('width', progress + '%');
+                video.currentTime = video.duration * (progress / 100);
+            }).drag(function (event, dd) {
+                var progressBar = $('.xui-player-progress-bar');
+                var player = $('.xui-player-progress');
+                var startPoint = progressBar.offset().left;
+                var centerDistance = $('.xui-player-progress-dot').outerWidth() / 2;
+                var clientX = dd.startX - dd.offsetX;
+                var progress = ((dd.offsetX + clientX + dd.deltaX - startPoint + centerDistance) / player.outerWidth()) * 100;
+                progress = parseInt(progress);
+                progress = progress >= 100 ? 100 : progress;
+                progressBar.css('width', progress + '%');
+                video.currentTime = video.duration * (progress / 100);
+            }).bind('click',function (e) {
+                var progressBar = $('.xui-player-progress-bar');
+                var player = $('.xui-player-progress');
+                var startPoint = progressBar.offset().left;
+                var centerDistance = $('.xui-player-progress-dot').outerWidth() / 2;
+                var progress = ((e.clientX - startPoint + centerDistance) / player.outerWidth()) * 100;
+                progress = parseInt(progress);
+                progress = progress >= 100 ? 100 : progress;
+                progressBar.css('width', progress + '%');
+                video.currentTime = video.duration * (progress / 100);
+            });
+        });
+    </script>
+</head>
+<body class="">
+    <div class="xui-player xui-center" style="max-width: 600px; height: 400px;">
+        <video width="100%" height="100%" style="display: block;" playsinline>
+            <source src="movie.mp4" type="video/mp4" />
+            当前浏览器不支持 video
+        </video>
+        <div class="xui-player-bottom">
+            <div class="xui-player-progress">
+                <div class="xui-player-progress-bar">
+                    <div class="xui-player-progress-dot"></div>
+                </div>
+            </div>
+            <div class="xui-player-control">
+                <div class="xui-player-control-play xui-icon-play"></div>
+                <div class="xui-player-control-timebar">00:00:00 / 00:00:00</div>
+                <div class="xui-player-control-volume xui-icon-volume-up"></div>
+                <!--<div class="xui-player-control-volume-progress">
+
+                </div>-->
+                <div class="xui-player-control-screen xui-icon-expand"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

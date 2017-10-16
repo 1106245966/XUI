@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>listenDomChange</title>
+    <link href="../compile/css/xui.css" rel="stylesheet" type="text/css" />
+    <script src="../compile/js/xui/xui.js" xui></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!--<script src="../js/xui/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../js/xui/jquery/jquery-listDomChange.js"></script>-->
+    <script>
+        $(document).listenDomChange('div.abc', function (data) {
+            console.log(this, data);
+        });
+        $(function (){
+            var abc = $('<div></div>').append('<span class="xui-img-box" style="width: 200px; height: 200px; display: inline-block;">\n    <!--“xui-image-auto”为增强属性，可以根据宽高自动适应填充整个容器-->\n    <img src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg" xui-image-auto />\n</span>\n<span class="xui-img-box" style="width: 200px; height: 200px; display: inline-block;">\n    <!--“xui-image-auto”为增强属性，可以根据宽高自动适应填充整个容器-->\n    <img src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg" xui-image-auto />\n</span>\n<span class="xui-img-box" style="width: 200px; height: 200px; display: inline-block;">\n    <!--“xui-image-auto”为增强属性，可以根据宽高自动适应填充整个容器-->\n    <img src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg" xui-image-auto />\n</span>\n<span class="xui-img-box" style="width: 200px; height: 200px; display: inline-block;">\n    <!--“xui-image-auto”为增强属性，可以根据宽高自动适应填充整个容器-->\n    <img src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg" xui-image-auto />\n</span>');
+            var abc2 = $('<div></div>').append('<div class="abc"></div>');
+            $('#abc').html(abc);
+            /*$('body').html('');
+            $('body').html('aa');
+            $('body').html('');
+            abc.append('<div id="test"></div>');*/
+            //优化前后
+            //上拉下拉加载：1071  709
+            //全局基础样式：23155  13716
+
+            //去除属性监听
+            //全局基础样式：275
+
+            //去除重复
+            //全局基础样式：194
+        });
+    </script>
+</head>
+<body>
+    <span class="xui-img-box" style="width: 200px; height: 200px; display: inline-block;">
+        <!--“xui-image-auto”为增强属性，可以根据宽高自动适应填充整个容器-->
+        <img src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg" xui-image-auto />
+    </span>
+    <div id="abc"></div>
+</body>
+</html>

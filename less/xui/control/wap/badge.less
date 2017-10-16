@@ -1,0 +1,41 @@
+.@{xui-prefix}badge{
+  .padding(0.3em 0.6em);
+  background-color: @gray-lighter;
+  display: inline-block;
+  font-size: @base-font-size-xs;
+  min-width:1rem;
+  text-align: center;
+  vertical-align : baseline;
+  line-height: 1;
+}
+.badge-theme-color(@color-name, @color){
+  .@{xui-prefix}badge.@{xui-prefix}badge-@{color-name}{
+    background-color: @color;
+    color:@white;
+  }
+}
+.badge-theme-color(red, @color-red);
+.badge-theme-color(pink, @color-pink);
+.badge-theme-color(purple, @color-purple);
+.badge-theme-color(blue, @color-blue);
+.badge-theme-color(cyan, @color-cyan);
+.badge-theme-color(green, @color-green);
+.badge-theme-color(yellow, @color-yellow);
+.badge-theme-color(orange, @color-orange);
+
+
+.@{xui-prefix}badge-xs{
+  font-size: @base-btn-size-xs;
+}
+.@{xui-prefix}badge-sm{
+  font-size: @base-btn-size-sm;
+}
+.@{xui-prefix}badge-md{
+  font-size: @base-btn-size-md;
+}
+.@{xui-prefix}badge-lg{
+  font-size: @base-btn-size-lg;
+}
+.@{xui-prefix}badge-xl{
+  font-size: @base-btn-size-xl;
+}

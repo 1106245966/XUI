@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>画廊</title>
+    <link href="../../../compile/css/xui.css" rel="stylesheet" type="text/css" />
+    <script src="../../../compile/js/xui/xui.js" xui></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script>
+        $(function () {
+            $('.imgs').click(function () {
+                $('.imgs').photoSwipe({
+                    index : $('.imgs').index($(this))
+                });
+            });
+            $('#open_gallery_btn').click(function () {
+                $.photoSwipe([
+                    {
+                        src : 'https://placekitten.com/600/400',
+                        w : 600,
+                        h : 400,
+                        title : '正在发呆的猫咪'
+                    },
+                    {
+                        src : 'http://www.touxiang.cn/uploads/20130424/24-085411_725.jpg',
+                        w : 425,
+                        h : 600,
+                        title : '萌萌的狗'
+                    }
+                ],{
+                    index : 0
+                });
+                return false;
+            })
+        })
+    </script>
+</head>
+<body class="xui-padding">
+    <h3>猫图片</h3>
+    <img src="https://placekitten.com/600/400" title="发呆的猫" xui-gallery="cat" />
+    <img src="https://placekitten.com/1200/900" xui-gallery="cat" />
+
+    <h3 class="xui-margin-top">狗图片</h3>
+    <img src="http://5.26923.com/download/pic/000/265/252b8b773f3ecde3c280448a0b1ffcba.jpg" xui-gallery="dog" /><br />
+    <a href="http://www.touxiang.cn/uploads/20130424/24-085411_725.jpg" xui-gallery="dog">点击显示狗图片</a>
+
+    <h3 class="xui-margin-top">js自定义调用画廊</h3>
+    <img class="imgs" src="https://placekitten.com/600/400" title="发呆的猫" />
+    <img class="imgs" src="https://placekitten.com/1200/900" />
+    <img class="imgs" src="http://5.26923.com/download/pic/000/265/252b8b773f3ecde3c280448a0b1ffcba.jpg" />
+    <img class="imgs" src="http://www.touxiang.cn/uploads/20130424/24-085411_725.jpg" />
+
+    <h3 class="xui-margin-top">js自定义调用画廊2</h3>
+    <a id="open_gallery_btn" href="#">点击打开画廊</a>
+</body>
+</html>

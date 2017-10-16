@@ -1,0 +1,78 @@
+.@{xui-prefix}input-group{
+  position: relative;
+  display: table;
+  border-collapse: separate;
+  width: 100%;
+
+  > [class*='@{xui-prefix}icon-']{
+    position: absolute;
+    left: 0.6em;
+    top: 50%;
+    margin-top: -0.5em;
+    display: block;
+    line-height: 1;
+
+
+    + .@{xui-prefix}input{
+      padding-left : 2em;
+    }
+  }
+
+  > .@{xui-prefix}input + [class*='@{xui-prefix}icon-']{
+    right: 0.7em;
+    left: auto;
+  }
+
+  // 当文本框有焦点就显示
+  > .@{xui-prefix}input{
+    padding-right: 2em;
+
+    + .@{xui-prefix}input-focus-show{
+      display: none;
+      cursor: pointer;
+    }
+    &:focus + .@{xui-prefix}input-focus-show, + .@{xui-prefix}input-focus-show:active{
+      display: block;
+    }
+  }
+
+  > *:last-child.@{xui-prefix}input{
+    padding-right: 0.5em;
+  }
+
+  //输入组
+  > .@{xui-prefix}input-group-lable,
+  > .@{xui-prefix}input-group-btn{
+    border: 1px solid #ccc;
+    border-right: none;
+    background-color: #eee;
+    &:last-child{
+      border-right: 1px solid #ccc;
+      border-left: none;
+    }
+  }
+
+  > .@{xui-prefix}input-group-lable{
+    .padding(0 1em);
+    text-align: center;
+  }
+
+  > .@{xui-prefix}input-group-btn{
+    > .@{xui-prefix}btn{
+      border: none;
+    }
+  }
+
+  > .@{xui-prefix}input-group-lable,
+  > .@{xui-prefix}input,
+  > .@{xui-prefix}input-group-btn{
+    display: table-cell;
+  }
+
+  > .@{xui-prefix}input-group-btn,
+  > .@{xui-prefix}input-group-lable{
+    width: 1%;
+    white-space:nowrap;
+    vertical-align: middle;
+  }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滚动监听</title>
+    <link href="../compile/css/xui.css" rel="stylesheet" type="text/css" />
+    <script src="../compile/js/xui/xui.js" xui></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <style>
+        .tile {
+            width: 290px;
+            height: 290px;
+            float: left;
+            border: 1px solid #999;
+            margin: 4px;
+        }
+    </style>
+    <script>
+        $(function () {
+            var body = $('body');
+            for (var i = 0; i < 100; ++i) {
+                var element = $('<div id="tile-' + i + '" class="tile"><h2>Tile #' + i + '</h2></div>');
+                body.append(element);
+            }
+
+            $('.tile').on('scrollSpy:enter', function() {
+                console.log('enter:', $(this).attr('id'));
+            });
+
+            $('.tile').on('scrollSpy:exit', function() {
+                console.log('exit:', $(this).attr('id'));
+            });
+
+            $('.tile').scrollSpy();
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

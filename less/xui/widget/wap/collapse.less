@@ -1,0 +1,50 @@
+.@{xui-prefix}collapse{
+  background-color: @white;
+  border-top: 1px solid #dedce2;
+  border-bottom: 1px solid #dedce2;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  > .@{xui-prefix}collapse-header{
+    cursor: pointer;
+    display: block;
+    color: #121212;
+
+    > .@{xui-prefix}collapse-header-icon:before{
+      content: "\f105";
+      display: inline-block;
+      font: normal normal normal 1.6rem/1 FontAwesome;
+      color: #cccccc;
+    }
+    &:active{
+      background-color: #eee;
+    }
+  }
+  &:last-child > .@{xui-prefix}collapse-header{
+    border-bottom: none;
+  }
+
+  &.@{xui-prefix}active{
+    > .@{xui-prefix}collapse-header{
+      border-bottom: 1px solid #eeecf2;
+
+      > .@{xui-prefix}collapse-header-icon:before{
+        content: "\f107";
+      }
+    }
+    > .@{xui-prefix}collapse-panel{
+      display: block;
+    }
+  }
+
+  > .@{xui-prefix}collapse-panel{
+    display: none;
+
+    > *{
+      border: none;
+      border-bottom: 1px solid #eeecf2;
+      &:last-child{
+        border-bottom: none;
+      }
+    }
+  }
+}

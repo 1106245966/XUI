@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数字框</title>
+    <link href="../../../compile/css/xui.css" rel="stylesheet" type="text/css" />
+    <script src="../../../compile/js/xui/xui.js" xui></script>
+    <script>
+        $(function () {
+            //获取输入框值
+            $('#get_input').click(function () {
+                alert($('#test_input').val());
+            });
+
+            //减操作事件监听
+            $('#test_minus').bind('xui.numbox.minus.before', function (e, number) {
+                alert('减操作之前获取的数字：' + number);
+                //return false; //阻止后面的操作
+            }).bind('xui.numbox.minus.after', function (e, number) {
+                alert('减操作之后获取的数字：' + number);
+            });
+
+            //加操作事件监听
+            $('#test_plus').bind('xui.numbox.plus.before', function (e, number) {
+                alert('加操作之前获取的数字：' + number);
+                //return false; //阻止后面的操作
+            }).bind('xui.numbox.plus.after', function (e, number) {
+                alert('加操作之后获取的数字：' + number);
+            });
+        });
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body class="xui-padding">
+    <h3>默认数字框</h3>
+    <div class="xui-input-group">
+        <span class="xui-input-group-btn" xui-numbox="minus">
+            <button class="xui-btn xui-icon-minus"></button>
+        </span>
+        <input class="xui-text-center" xui-numbox="input" type="number" value="1">
+        <span class="xui-input-group-btn" xui-numbox="plus">
+            <button class="xui-btn xui-icon-plus"></button>
+        </span>
+    </div>
+
+    <h3 class="xui-margin-top">限定最小值和最大值</h3>
+    <div class="xui-input-group">
+        <span class="xui-input-group-btn" xui-numbox="minus">
+            <button class="xui-btn xui-icon-minus"></button>
+        </span>
+        <input class="xui-text-center" xui-numbox="input" min="1" max="9" type="number" value="1">
+        <span class="xui-input-group-btn" xui-numbox="plus">
+            <button class="xui-btn xui-icon-plus"></button>
+        </span>
+    </div>
+
+    <h3 class="xui-margin-top">设定步长</h3>
+    <div class="xui-input-group">
+        <span class="xui-input-group-btn" xui-numbox="minus">
+            <button class="xui-btn xui-icon-minus"></button>
+        </span>
+        <input class="xui-text-center" xui-numbox="input" type="number" step="10" value="0">
+        <span class="xui-input-group-btn" xui-numbox="plus">
+            <button class="xui-btn xui-icon-plus"></button>
+        </span>
+    </div>
+
+    <h3 class="xui-margin-top">javascript操作</h3>
+    <div class="xui-input-group">
+        <span id="test_minus" class="xui-input-group-btn" xui-numbox="minus">
+            <button class="xui-btn xui-icon-minus"></button>
+        </span>
+        <input id="test_input" class="xui-text-center" xui-numbox="input" type="number" step="10" value="0">
+        <span id="test_plus" class="xui-input-group-btn" xui-numbox="plus">
+            <button class="xui-btn xui-icon-plus"></button>
+        </span>
+    </div>
+    <button id="get_input" class="xui-btn xui-btn-block xui-btn-red xui-margin-top-sm">获取当前值</button>
+</body>
+</html>

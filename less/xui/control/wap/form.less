@@ -1,0 +1,119 @@
+.@{xui-prefix}form{
+  display: block;
+  width: 100%;
+  label{
+    margin-bottom: 0.5rem;
+  }
+}
+.@{xui-prefix}form-group{
+
+}
+//表单表格布局
+.@{xui-prefix}form-grid, .@{xui-prefix}form.@{xui-prefix}form-grid{
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+
+  .@{xui-prefix}form-group{
+    display: table-row;
+
+    > *{
+      display: table-cell;
+    }
+    > *:first-child{
+      .padding-horizontal(1rem);
+    }
+    .@{xui-prefix}text-top,
+    .@{xui-prefix}text-middle,
+    .@{xui-prefix}text-bottom,
+    .@{xui-prefix}text-lt,
+    .@{xui-prefix}text-lm,
+    .@{xui-prefix}text-lb,
+    .@{xui-prefix}text-ct,
+    .@{xui-prefix}text-cm,
+    .@{xui-prefix}text-cb,
+    .@{xui-prefix}text-rt,
+    .@{xui-prefix}text-rm,
+    .@{xui-prefix}text-rb{
+      width: inherit;
+    }
+  }
+}
+
+//表单行内布局
+.@{xui-prefix}form-inline {
+  .@{xui-prefix}form-group{
+    .margin-bottom-sm();
+  }
+}
+@media @screen-md-over {
+  .@{xui-prefix}form-inline{
+    input[type='number'],
+    input[type='search'],
+    input[type='text'],
+    input[type='password'],
+    input[type='datetime'],
+    input[type='datetime-local'],
+    input[type='date'],
+    input[type='month'],
+    input[type='time'],
+    input[type='week'],
+    input[type='email'],
+    input[type='url'],
+    input[type='tel'],
+    input[type='color'],
+    select,
+    textarea{
+      width: auto;
+      display: inline-block;
+    }
+    .@{xui-prefix}form-group{
+      display: inline-block;
+      .margin-bottom(0);
+    }
+  }
+}
+
+//表单大小定义
+.@{xui-prefix}form-xs, .@{xui-prefix}form-xs *{
+  font-size: @base-font-size-xs !important;
+  &::-webkit-input-placeholder{
+    line-height: @base-font-size-xs;
+  }
+}
+.@{xui-prefix}form-sm, .@{xui-prefix}form-sm *{
+  font-size: @base-font-size-sm !important;
+  &::-webkit-input-placeholder{
+    line-height: @base-font-size-sm;
+  }
+}
+.@{xui-prefix}form-md, .@{xui-prefix}form-md *{
+  font-size: @base-font-size-md !important;
+  &::-webkit-input-placeholder{
+    line-height: @base-font-size-md;
+  }
+}
+.@{xui-prefix}form-lg, .@{xui-prefix}form-lg *{
+  font-size: @base-font-size-lg !important;
+  &::-webkit-input-placeholder{
+    font-size: @base-font-size-lg;
+  }
+}
+.@{xui-prefix}form-xl, .@{xui-prefix}form-xl *{
+  font-size: @base-font-size-xl !important;
+  &::-webkit-input-placeholder{
+    line-height: @base-font-size-xl;
+  }
+}
+.@{xui-prefix}form-xxl, .@{xui-prefix}form-xxl *{
+  font-size: @base-font-size-xxl !important;
+  &::-webkit-input-placeholder{
+    line-height: @base-font-size-xxl;
+  }
+}
+.@{xui-prefix}form-xxxl, .@{xui-prefix}form-xxxl *{
+  font-size: @base-font-size-xxxl !important;
+  &::-webkit-input-placeholder{
+    line-height: @base-font-size-xxxl;
+  }
+}

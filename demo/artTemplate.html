@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>artTemplate</title>
+    <link href="../compile/css/xui.css" rel="stylesheet" type="text/css" />
+    <script src="../compile/js/xui/xui.js" xui></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script>
+        //添加text组件
+        artTemplate.createAssembly('text', {
+            //设置默认值
+            default :{
+                value : "默认内容",
+                callback : function (){
+
+                }
+            },
+            //设置初始化
+            init : function () {
+                var data = this.data;
+                var element = this.element;
+                $(element).find('input').keyup(function () {
+                    var value = $(this).val();
+                    element.find('span').html(value);
+                    if(data['callback']) data.callback(value);
+                });
+            },
+            //渲染内容
+            render : function () {
+                return '<div>\n    <input type="text" value="{{value}}" />\n    <span>{{value}}</span>\n</div>\n';
+            }
+        });
+
+        artTemplate.createAssembly('text2', {
+            //渲染内容
+            render : function () {
+                return '<div><input type="text" value="{{value}}" /><span>{{value}}</span></div>';
+            }
+        });
+        artTemplate.createAssembly('test', {
+            //渲染内容
+            render : function () {
+                return '<span>{{value}}</span>';
+            }
+        });
+
+        $(function () {
+            var data = {
+                title: '基本例子',
+                title2: '基本例子2',
+                isAdmin: true,
+                textCallback : function (value) {
+                    console.log(value);
+                },
+                dateTime : '2017-3-3 22:32:23',
+                list: {
+                    'test1' : '还好',
+                    'test2' : 'sdfsdfs',
+                    'test3' : 'sdfsdfs',
+                    'test4' : 'sdfsdfs'
+                },
+                list2 :[ 'aaa','bbb']
+            };
+            $('#content').artTemplate(data);
+            /*window.setTimeout(function () {
+                $('#content').artTemplate($.extend({}, data, {title:'append'}), 'append');
+                $('#content').artTemplate($.extend({}, data, {title:'prepend'}), 'prepend');
+                window.setTimeout(function () {
+                    $('#content').artTemplate($.extend({}, data, {title:'刷新'}));
+                },3000);
+            },3000);*/
+            //console.log($(document.createTextNode('文本节点'))[0].nodeValue);
+        });
+    </script>
+</head>
+<body>
+    <script id="content" type="text/artTemplate">
+        {{if isAdmin}}
+        <h1>{{title}}{{dateTime | date:'yyyy-MM-dd hh:mm:ss'}}</h1>
+        <ul>
+            {{each list as value i}}
+            <li>索引 {{i}} ：{{value}}</li>
+            {{/each}}
+        </ul>
+        {{/if}}
+        {{text value=(title) callback=(textCallback) /}}
+        {{text value=(title2) callback=(textCallback) /}}
+        {{each list2 as value}}
+            {{test value=(value) /}}
+        {{/each}}
+    </script>
+</body>
+</html>

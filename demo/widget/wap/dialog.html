@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对话框</title>
+    <link href="../../../compile/css/xui.css" rel="stylesheet" type="text/css" />
+    <script src="../../../compile/js/xui/xui.js" xui></script>
+    <script>
+        $(function () {
+            $('#alert_btn').click(function () {
+               $.alert('内容','标题',function () {
+                   //确认后回调
+               });
+            });
+            $('#dialog_btn').click(function () {
+                $.dialog('内容','标题',[
+                    {
+                        name : '确认',
+                        callback : function () {
+                            alert('你点击了确认');
+                        }
+                    },
+                    {
+                        name : '取消',
+                        callback : function () {
+                            alert('你点击了取消');
+                        }
+                    }
+                ]);
+            });
+            $('#wait_btn').click(function () {
+                $.wait();
+                window.setTimeout(function () {
+                    $.wait('close');
+                },2000);
+            });
+            $('#success_btn').click(function () {
+                $.success();
+                window.setTimeout(function () {
+                    $.success('close');
+                },2000);
+            });
+            $('#error_btn').click(function () {
+                $.error();
+                window.setTimeout(function () {
+                    $.error('close');
+                },2000);
+            });
+            $('#toast_btn').click(function () {
+                $.toast('toast内容');
+            });
+            $('#action_btn').click(function () {
+                $.action('标题',[
+                    {
+                        name : '跳转到百度',
+                        link : 'http://www.baidu.com'
+                    },
+                    {
+                        name : '弹窗',
+                        callback : function (){
+                            alert('弹窗');
+                        }
+                    }
+                ]);
+            });
+        });
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body>
+
+    <button id="alert_btn" class="xui-btn">弹窗</button>
+    <button id="dialog_btn" class="xui-btn">自定义按钮弹窗</button>
+    <button id="wait_btn" class="xui-btn">点击等待</button>
+    <button id="success_btn" class="xui-btn">点击提交成功</button>
+    <button id="error_btn" class="xui-btn">点击提交失败</button>
+    <button id="toast_btn" class="xui-btn">toast</button>
+    <button id="action_btn" class="xui-btn">action</button>
+</body>
+</html>

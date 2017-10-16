@@ -1,0 +1,38 @@
+.@{xui-prefix}slider{
+  //width: 100%;
+  overflow: hidden;
+  position: relative;
+  .@{xui-prefix}slider-group{
+    position: relative;
+    left: 0;
+    top: 0;
+    list-style: none;
+    width: 1200%;
+    .@{xui-prefix}slider-item{
+      float: left;
+      display: block;
+    }
+  }
+  .@{xui-prefix}slider-btn-group{
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    .transform(translateX(-50%));
+    .@{xui-prefix}slider-btn{
+      display: block;
+      padding: 0.5rem;
+      margin-left: 0.5rem;
+      background-color: #545454;
+      float: left;
+      border-radius: @base-radius-round;
+      cursor: pointer;
+    }
+    .@{xui-prefix}slider-btn.@{xui-prefix}active{
+      background-color: @color-orange;
+    }
+  }
+  img{
+    width: 100%;
+    display: block;
+  }
+}

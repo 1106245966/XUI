@@ -1,0 +1,101 @@
+/* 平分布局 */
+[class*='grid-avg-'] {
+  display: block;
+  list-style: none;
+  clear: none;
+}
+[class*='@xui-prefixgrid-avg-'] > * {
+  float: left;
+}
+.grid-avg-1 > * {
+  width: 100%;
+}
+.grid-avg-2 > * {
+  width: 50%;
+}
+.grid-avg-3 > * {
+  width: 33.33333333%;
+}
+.grid-avg-4 > * {
+  width: 25%;
+}
+.grid-avg-5 > * {
+  width: 20%;
+}
+.grid-avg-6 > * {
+  width: 16.66666667%;
+}
+.grid-avg-7 > * {
+  width: 14.28571429%;
+}
+.grid-avg-8 > * {
+  width: 12.5%;
+}
+.grid-avg-9 > * {
+  width: 11.11111111%;
+}
+.grid-avg-10 > * {
+  width: 10%;
+}
+.grid-avg-11 > * {
+  width: 9.09090909%;
+}
+.grid-avg-12 > * {
+  width: 8.33333333%;
+}
+/* 等份布局 */
+.grid-box {
+  width: 100%;
+  clear: both;
+}
+.grid-box > * {
+  float: left;
+}
+.grid-equal-1 {
+  width: 8.33333333%;
+}
+.grid-equal-2 {
+  width: 16.66666667%;
+}
+.grid-equal-3 {
+  width: 25%;
+}
+.grid-equal-4 {
+  width: 33.33333333%;
+}
+.grid-equal-5 {
+  width: 41.66666667%;
+}
+.grid-equal-6 {
+  width: 50%;
+}
+.grid-equal-7 {
+  width: 58.33333333%;
+}
+.grid-equal-8 {
+  width: 66.66666667%;
+}
+.grid-equal-9 {
+  width: 75%;
+}
+.grid-equal-10 {
+  width: 83.33333333%;
+}
+.grid-equal-11 {
+  width: 91.66666667%;
+}
+.grid-equal-12 {
+  width: 100%;
+}
+/* 表格布局 */
+.grid-table {
+  width: 100%;
+  display: table;
+}
+.grid-table > *,
+.grid-table > *.grid-row > * {
+  display: table-cell;
+}
+.grid-table > *.grid-row {
+  display: table-row;
+}

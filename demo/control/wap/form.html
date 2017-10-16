@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+    <link href="../../../compile/css/xui.css" rel="stylesheet" type="text/css" />
+    <script src="../../../compile/js/xui/xui.js" xui></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body class="xui-padding">
+    <h3>默认表单</h3>
+    <form class="xui-form xui-margin-bottom-children">
+        <div class="xui-form-group">
+            <div><label>用户名</label></div>
+            <div><input type="text" /></div>
+        </div>
+        <div class="xui-form-group">
+            <div><label>密码</label></div>
+            <div><input type="password" /></div>
+        </div>
+        <div class="xui-form-group">
+            <div><button class="xui-btn">提交</button></div>
+        </div>
+    </form>
+
+    <h3 class="xui-margin-top">网格表单</h3>
+    <form class="xui-form-grid">
+        <div class="xui-form-group">
+            <div class="xui-text-rm xui-grid-equal-sm-3 xui-grid-equal-md-over-2 xui-grid-equal-xl-over-1"><label class="">用户名</label></div>
+            <div><input type="text" /></div>
+        </div>
+        <div class="xui-form-group xui-padding-top-children-sm">
+            <div class="xui-text-rm"><label>密码</label></div>
+            <div><input type="password" /></div>
+        </div>
+        <div class="xui-form-group xui-padding-top-children-sm">
+            <div></div>
+            <div><label><input type="checkbox" />记住我</label></div>
+        </div>
+        <div class="xui-form-group xui-padding-top-children-sm">
+            <div></div>
+            <div><button class="xui-btn">提交</button></div>
+        </div>
+    </form>
+
+    <h3 class="xui-margin-top">行内表单</h3>
+    <form class="xui-form-inline">
+        <div class="xui-form-group">
+            <div><input type="text" placeholder="用户名" /></div>
+        </div>
+        <div class="xui-form-group">
+            <div><input type="password" placeholder="密码" /></div>
+        </div>
+        <div class="xui-form-group">
+            <div><label><input type="checkbox" />记住我</label></div>
+        </div>
+        <div class="xui-form-group">
+            <div><button class="xui-btn">提交</button></div>
+        </div>
+    </form>
+
+    <h3 class="xui-margin-top">输入组</h3>
+    <form class="xui-form">
+        <div class="xui-form-group">
+            <div><input type="text" placeholder="用户名" /></div>
+        </div>
+        <div class="xui-form-group">
+            <div><input type="password" placeholder="密码" /></div>
+        </div>
+        <div class="xui-form-group xui-margin-top">
+            <div><button class="xui-btn xui-btn-blue xui-btn-block">提交</button></div>
+        </div>
+    </form>
+
+    <h3 class="xui-margin-top">表单尺寸</h3>
+    <!--表单全局定义-->
+    <form class="xui-form xui-form-xs">
+        <div class="xui-form-group">
+            <!--表单单个定义-->
+            <div><input class="xui-form-xs" type="text" placeholder="用户名" /></div>
+        </div>
+        <div class="xui-form-group">
+            <div><input class="xui-form-sm" type="text" placeholder="用户名" /></div>
+        </div>
+        <div class="xui-form-group">
+            <div><input class="xui-form-md" type="text" placeholder="用户名" /></div>
+        </div>
+        <div class="xui-form-group">
+            <div><input class="xui-form-lg" type="text" placeholder="用户名" /></div>
+        </div>
+        <div class="xui-form-group">
+            <div><input class="xui-form-xl" type="text" placeholder="用户名" /></div>
+        </div>
+        <div class="xui-form-group">
+            <div><input class="xui-form-xxl" type="text" placeholder="用户名" /></div>
+        </div>
+        <div class="xui-form-group">
+            <div><input class="xui-form-xxxl" type="text" placeholder="用户名" /></div>
+        </div>
+        <div class="xui-form-group xui-margin-top">
+            <div><button class="xui-btn xui-btn-blue xui-btn-block">提交</button></div>
+        </div>
+    </form>
+</body>
+</html>

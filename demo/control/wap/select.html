@@ -1,0 +1,160 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择框</title>
+    <link href="../../../compile/css/xui.css" rel="stylesheet" type="text/css" />
+    <script src="../../../compile/js/xui/xui.js" xui></script>
+    <script>
+        $(function () {
+            //javascript自定义调用
+            $('#btn_1').click(function () {
+                var data = [
+                    [
+                        { id : '2011', 'value' : '2011年' },
+                        { id : '2012', 'value' : '2012年' },
+                        { id : '2013', 'value' : '2013年' }
+                    ],
+                    [
+                       { id : '1', 'value' : '1月' },
+                       { id : '2', 'value' : '2月' },
+                       { id : '3', 'value' : '3月' }
+                    ],
+                    [
+                       { id : '1', 'value' : '1日' },
+                       { id : '2', 'value' : '2日' },
+                       { id : '3', 'value' : '3日' }
+                    ]
+                ];
+                var self = $(this);
+                $.iosSelect(data, {
+                   //callback: 选择完毕后的回调函数
+                   //title: 选择框title
+                   //itemHeight: 每一项的高度，默认 35px
+                   //headerHeight: 组件标题栏高度 默认 44px
+                   //addClassName: 组件额外类名 用于自定义样式
+                   //oneTwoRelation: 第一列和第二列是否通过parentId关联
+                   //twoThreeRelation: 第二列和第三列是否通过parentId关联
+                   //oneLevelId: 第一级选中id
+                   //twoLevelId: 第二级选中id
+                   //threeLevelId: 第三级选中id
+                   //showLoading: 如果你的数据是异步加载的，可以使用该参数设置为true，下拉菜单会有加载中的效果
+                   oneLevelId : self.data('year'),
+                   twoLevelId : self.data('month'),
+                   threeLevelId : self.data('day'),
+                   callback : function (oneLevelData, twoLevelData, threeLevelData) {
+                       self.data('year', oneLevelData.id);
+                       self.data('month', twoLevelData.id);
+                       self.data('day', threeLevelData.id);
+                       $('#hid_1_val').val(oneLevelData.id + twoLevelData.id + threeLevelData.id);
+                       self.text(oneLevelData.value + twoLevelData.value + threeLevelData.value);
+                   }
+                });
+            });
+
+            //javascript自定义级联调用
+            $('#btn_2').click(function () {
+                var data = [
+                    function (callback) {
+                        //模拟延时
+                        setTimeout(function () {
+                            callback([
+                                { id : '1', 'value' : '广东省' },
+                                { id : '2', 'value' : '四川省' },
+                                { id : '3', 'value' : '广西省' }
+                            ]);
+                        }, 500);
+                    },
+                    function (sheng, callback) {
+                        //模拟延时
+                        setTimeout(function () {
+                            switch (sheng){
+                                case '1' :
+                                    callback([
+                                        { id : '1', 'value' : '珠海市' },
+                                        { id : '2', 'value' : '广州市' },
+                                        { id : '3', 'value' : '深圳市' }
+                                    ]);
+                                    break;
+                                case '2' :
+                                    callback([
+                                        { id : '1', 'value' : '成都市' },
+                                        { id : '2', 'value' : '自贡市' },
+                                        { id : '3', 'value' : '攀枝花市' }
+                                    ]);
+                                    break;
+                                case '3' :
+                                    callback([
+                                        { id : '1', 'value' : '南宁市' },
+                                        { id : '2', 'value' : '柳州市' },
+                                        { id : '3', 'value' : '桂林市' }
+                                    ]);
+                                    break;
+                            }
+                        }, 500);
+                    }
+                ];
+                var self = $(this);
+                $.iosSelect(data, {
+                    oneLevelId : self.data('sheng'),
+                    twoLevelId : self.data('shi'),
+                    oneTwoRelation : 1, //关联填：1
+                    showLoading : true,
+                    callback : function (oneLevelData, twoLevelData) {
+                        self.data('sheng', oneLevelData.id);
+                        self.data('shi', twoLevelData.id);
+                        $('#hid_2_val').val(oneLevelData.id + twoLevelData.id);
+                        self.text(oneLevelData.value + twoLevelData.value);
+                    }
+                });
+            });
+        });
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body class="xui-padding">
+    <h3>默认下拉选择框</h3>
+    <select>
+        <option>点击选择水果</option>
+        <option value="1">苹果</option>
+        <option value="2">雪梨</option>
+    </select>
+
+    <h3 class="xui-margin-top">ios下拉选择框</h3>
+    <span xui-select-ios>
+        <span>点击选择水果</span>
+        <select>
+            <option value="1">苹果</option>
+            <option value="2">雪梨</option>
+        </select>
+    </span>
+
+    <h3 class="xui-margin-top">带标题的ios下拉选择框</h3>
+    <span xui-select-ios title="选择水果">
+        <span>点击选择水果</span>
+        <select>
+            <option value="1">苹果</option>
+            <option value="2">雪梨</option>
+        </select>
+    </span>
+
+    <h3 class="xui-margin-top">ios下拉选择框默认值</h3>
+    <span xui-select-ios>
+        <span value="2">雪梨</span>
+        <select>
+            <option value="1">苹果</option>
+            <option value="2">雪梨</option>
+        </select>
+    </span>
+
+    <h3 class="xui-margin-top">javascript自定义调用</h3>
+    <button id="btn_1" class="xui-btn">点击选择下拉</button>
+    <input id="hid_1_val" type="hidden" />
+
+    <h3 class="xui-margin-top">javascript自定义级联调用</h3>
+    <button id="btn_2" class="xui-btn">点击选择下拉</button>
+    <input id="hid_2_val" type="hidden" />
+
+    <h3 class="xui-margin-top">时间控件</h3>
+    <input type="text" id="date_txt" xui-select-ios-date />
+</body>
+</html>

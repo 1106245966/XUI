@@ -1,0 +1,298 @@
+.@{xui-prefix}dialog,
+.@{xui-prefix}dialog-wait,
+.@{xui-prefix}dialog-info,
+.@{xui-prefix}dialog-action{
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.55);
+  z-index: 999999;
+}
+.@{xui-prefix}dialog, .@{xui-prefix}dialog-info{
+
+  .@{xui-prefix}dialog-box{
+    background-color: @white;
+    position: fixed;
+    width: 23rem;
+    top: 50%;
+    left: 50%;
+    .transform(translateX(-50%) translateY(-50%));
+    text-align: center;
+
+    .@{xui-prefix}dialog-header {
+      padding: 1.5rem 1rem 0.5rem 1rem;
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+    .@{xui-prefix}dialog-body {
+      padding: 0.5rem 1rem 1.5rem 1rem;
+      color: #666666;
+      word-break: break-all;
+    }
+    .@{xui-prefix}dialog-footer {
+
+    }
+    .@{xui-prefix}dialog-btn{
+      border-top: 1px solid #e6e6e6;
+      border-left: 1px solid #e6e6e6;
+      height: 4.4rem;
+      line-height: 4.4rem;
+      display: block;
+      cursor: pointer;
+      &:first-child{
+        border-left: none;
+      }
+      &:active{
+        background-color: #ececec;
+      }
+    }
+  }
+}
+
+.@{xui-prefix}dialog-info{
+  .@{xui-prefix}dialog-box {
+    width: auto;
+    .@{xui-prefix}dialog-body {
+      padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+      color: #666666;
+      word-break: break-all;
+    }
+  }
+}
+.@{xui-prefix}dialog-action{
+  .@{xui-prefix}dialog-box {
+    position: fixed;
+    width: 100%;
+    padding: 1rem;
+    bottom: 0;
+    text-align: center;
+    .@{xui-prefix}dialog-header {
+      background-color: @white;
+      height: 4rem;
+      line-height: 4rem;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: #a4a4a4;
+    }
+    .@{xui-prefix}dialog-body{
+      list-style: none;
+      background-color: @white;
+      li{
+        display: block;
+        &:active{
+          background-color: #f3f3f3;
+        }
+      }
+      a{
+        display: block;
+        height: 4rem;
+        line-height: 4rem;
+        border-top: 1px solid #eeeeee;
+      }
+    }
+    .@{xui-prefix}dialog-footer {
+      margin-top: 1rem;
+      height: 4rem;
+      line-height: 4rem;
+      background-color: @color-red;
+      color: @white;
+      cursor: pointer;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+      &:active{
+        background-color: darken(@color-red, 20%);
+      }
+    }
+  }
+}
+
+.@{xui-prefix}dialog-toast{
+  position: fixed;
+  left: 50%;
+  bottom:3rem;
+  .transform(translateX(-50%));
+  background-color: rgba(0, 0, 0, 0.7);
+  color: @white;
+  padding:0.5rem 1.5rem;
+  border-radius: @base-radius-round;
+}
+
+.@{xui-prefix}dialog-window{
+  width: 1000px;
+  height: 500px;
+  position: absolute;
+  left:0;
+  top:0;
+  background-color: #fff;
+  box-shadow: 0 0 15px #545454;
+
+  .@{xui-prefix}dialog-window-header{
+    background-color: #eee;
+    .padding-horizontal-sm();
+    .padding-vertical-xs();
+    .xui-icon-times{
+      cursor: pointer;
+    }
+  }
+  .@{xui-prefix}dialog-window-body{
+    width: 100%;
+    height: 100%;
+
+    iframe{
+      width: 100%;
+      height: 100%;
+      border:none;
+    }
+  }
+  .@{xui-prefix}dialog-window-zoom{
+    width: 10px;
+    height:10px;
+    position: absolute;
+    bottom:0;
+    right:0;
+    cursor: se-resize;
+  }
+}
+
+
+.@{xui-prefix}dialog-popup{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left:0;
+  top:0;
+  display: none;
+
+  .@{xui-prefix}dialog-popup-mask{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    .transition(all 0.3s);
+  }
+  .@{xui-prefix}dialog-popup-model{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    margin: auto;
+    overflow: auto;
+    box-shadow:0 0 10px #2f2f2f;
+    .transition(all 0.3s);
+  }
+
+  //激活状态
+  &.xui-active{
+    display: block;
+    .@{xui-prefix}dialog-popup-mask{
+      opacity: 1;
+    }
+  }
+
+  //底部弹出
+  &.@{xui-prefix}dialog-popup-bottom{
+
+    .@{xui-prefix}dialog-popup-model{
+      left: 0;
+      top: 200%;
+    }
+
+    //激活状态
+    &.xui-active{
+      .@{xui-prefix}dialog-popup-model{
+        top: 0;
+      }
+    }
+  }
+
+  //顶部弹出
+  &.@{xui-prefix}dialog-popup-top{
+
+    .@{xui-prefix}dialog-popup-model{
+      left: 0;
+      top: -200%;
+    }
+
+    //激活状态
+    &.xui-active{
+      .@{xui-prefix}dialog-popup-model{
+        top: 0;
+      }
+    }
+  }
+
+  //左边弹出
+  &.@{xui-prefix}dialog-popup-left{
+
+    .@{xui-prefix}dialog-popup-model{
+      left: -200%;
+      top: 0;
+    }
+
+    //激活状态
+    &.xui-active{
+      .@{xui-prefix}dialog-popup-model{
+        left: 0;
+      }
+    }
+  }
+
+  //右边弹出
+  &.@{xui-prefix}dialog-popup-right{
+
+    .@{xui-prefix}dialog-popup-model{
+      right: -200%;
+      top: 0;
+    }
+
+    //激活状态
+    &.xui-active{
+      .@{xui-prefix}dialog-popup-model{
+        right: 0;
+      }
+    }
+  }
+
+  //放大弹出
+  &.@{xui-prefix}dialog-popup-zoom{
+
+    .@{xui-prefix}dialog-popup-model{
+      width: 0;
+      height: 0;
+    }
+
+    //激活状态
+    &.xui-active{
+      .@{xui-prefix}dialog-popup-model{
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  //底部弹出
+  &.@{xui-prefix}dialog-bottom{
+
+    .@{xui-prefix}dialog-popup-model{
+      margin: initial;
+      top: initial;
+      bottom: -100%;
+      height: 40%;
+    }
+
+    //激活状态
+    &.xui-active{
+      .@{xui-prefix}dialog-popup-model{
+        bottom: 0;
+        top: initial;
+      }
+    }
+  }
+}

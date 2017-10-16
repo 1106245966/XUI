@@ -1,0 +1,135 @@
+//默认表格
+.@{xui-prefix}table{
+  width: 100%;
+
+  > thead{
+    > tr {
+      > th {
+        text-align: left;
+        border-bottom: 1px solid #dddddd;
+      }
+    }
+  }
+
+  > tbody{
+    > tr{
+      > td{
+        border-top: 1px solid #dddddd;
+      }
+    }
+    > tr:nth-child(odd){
+      background-color: #fbfbfb;
+    }
+    > tr:hover{
+      background-color: #efefef;
+    }
+  }
+  > thead, > tbody{
+    > tr{
+      > th,> td{
+        padding: 0.7rem;
+
+        &.@{xui-prefix}text-top,
+        &.@{xui-prefix}text-middle,
+        &.@{xui-prefix}text-bottom,
+        &.@{xui-prefix}text-lt,
+        &.@{xui-prefix}text-lm,
+        &.@{xui-prefix}text-lb,
+        &.@{xui-prefix}text-ct,
+        &.@{xui-prefix}text-cm,
+        &.@{xui-prefix}text-cb,
+        &.@{xui-prefix}text-rt,
+        &.@{xui-prefix}text-rm,
+        &.@{xui-prefix}text-rb{
+          width: inherit !important;
+        }
+      }
+    }
+  }
+}
+
+//边框样式
+table.@{xui-prefix}table-bordered{
+  > thead, > tbody{
+    > tr{
+      > th,> td{
+        border-left: 1px solid #dddddd;
+        border-top: 1px solid #dddddd;
+        &:last-child{
+          border-right: 1px solid #dddddd;
+        }
+      }
+    }
+  }
+  > tbody{
+    > tr:last-child {
+      > td {
+        border-bottom: 1px solid #dddddd;
+      }
+    }
+  }
+  > thead{
+    > tr {
+      > th {
+        border-bottom: 1px solid #dddddd;
+      }
+    }
+  }
+}
+
+.@{xui-prefix}table.@{xui-prefix}table-nostripe{
+  > tbody {
+    > tr {
+      background-color: inherit;
+    }
+    > tr:hover{
+      background-color: #efefef;
+    }
+  }
+}
+//圆角表格
+.table-radius(@name, @size){
+  table.@{xui-prefix}@{name}{
+    .radius(@size);
+
+    > thead {
+      > tr:first-child {
+        > th:first-child{
+          .radius(@size 0 0 0);
+        }
+        > th:last-child{
+          .radius(0 @size 0 0);
+        }
+      }
+    }
+    > tbody {
+      > tr:last-child {
+        > td:first-child{
+          .radius(0 0 0 @size);
+        }
+        > td:last-child{
+          .radius(0 0 @size 0);
+        }
+      }
+    }
+  }
+}
+.table-radius(radius, @base-default-radius-size);
+.table-radius(radius-xs, @base-radius-size-xs);
+.table-radius(radius-sm, @base-radius-size-sm);
+.table-radius(radius-md, @base-radius-size-md);
+.table-radius(radius-lg, @base-radius-size-lg);
+.table-radius(radius-xl, @base-radius-size-xl);
+.table-radius(round, @base-radius-round);
+.table-radius(circle, @base-radius-circle);
+
+//表格紧凑
+table.@{xui-prefix}table-compact{
+  > thead, > tbody {
+    > tr {
+      > th, > td {
+        padding: 0.4rem;
+      }
+    }
+  }
+}

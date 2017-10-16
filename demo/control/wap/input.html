@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输入框 </title>
+    <link href="../../../compile/css/xui.css" rel="stylesheet" type="text/css" />
+    <script src="../../../compile/js/xui/xui.js" xui></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body class="xui-padding">
+    <h3>左边图标</h3>
+    <div class="xui-input-group">
+        <i class="xui-icon-calendar"></i>
+        <input class="xui-input" type="text" />
+    </div>
+
+    <h3 class="xui-margin-top">右边图标</h3>
+    <div class="xui-input-group">
+        <input class="xui-input" type="text" />
+        <i class="xui-icon-times"></i>
+    </div>
+
+    <h3 class="xui-margin-top">左右边图标</h3>
+    <div class="xui-input-group">
+        <i class="xui-icon-calendar"></i>
+        <input class="xui-input" type="text" />
+        <i class="xui-icon-times"></i>
+    </div>
+
+    <h3 class="xui-margin-top">文本框有焦点显示右边图标</h3>
+    <div class="xui-input-group">
+        <i class="xui-icon-calendar"></i>
+        <input class="xui-input" type="text" />
+        <i class="xui-icon-times xui-input-focus-show" onclick="alert('你好')"></i>
+    </div>
+
+    <h3 class="xui-margin-top">文本框组</h3>
+    <div class="xui-input-group">
+        <span class="xui-input-group-lable"><i class="xui-icon-calendar"></i></span>
+        <input type="text" />
+    </div>
+    <div class="xui-input-group">
+        <span class="xui-input-group-lable">@</span>
+        <input type="text" />
+    </div>
+    <div class="xui-input-group">
+        <input type="number" />
+        <span class="xui-input-group-lable">.00</span>
+    </div>
+    <div class="xui-input-group">
+        <span class="xui-input-group-lable">￥</span>
+        <input type="number" />
+        <span class="xui-input-group-lable">.00</span>
+    </div>
+    <div class="xui-input-group">
+        <input type="text" />
+        <span class="xui-input-group-btn">
+            <button class="xui-btn xui-icon-search"></button>
+        </span>
+    </div>
+    <div class="xui-input-group">
+        <input type="text" />
+        <span class="xui-input-group-btn">
+            <button class="xui-btn xui-icon-sort-desc"></button>
+        </span>
+    </div>
+</body>
+</html>

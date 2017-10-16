@@ -1,0 +1,121 @@
+/*前缀*/
+@xui-prefix : ~'xui-';
+
+
+@black:           #000;
+@white:           #fff;
+
+@gray-darker:     lighten(@black, 13.5%); // #222
+@gray-dark:       lighten(@black, 20%);   // #333
+@gray:            lighten(@black, 33.5%); // #555
+@gray-light:      lighten(@black, 60%);   // #999
+@gray-lighter:    lighten(@black, 93.5%); // #eee
+
+@color-red : #e14949;
+@color-pink : #f530d2;
+@color-purple : #c338e1;
+@color-blue : #3face4;
+@color-cyan : #44d6ca;
+@color-green : #4dbe51;
+@color-yellow : #ebe036;
+@color-orange: #f5a22b;
+
+
+@screen-equal : 12;  //屏幕分成等份
+@truncate-line-max : 12; //文字最大能截取几行
+@h-tag-start : 3rem;
+
+@screen-size-small : 640px;  //0- 640px
+@screen-size-medium : 1024px; // 641-1024px
+@screen-size-large: 1280px; // 1025 - 1280px
+@screen-size-xl: 1440px; // 1281 - 1440px
+@screen-size-xxl: 1920px; // 1441 -1920px
+
+@screen-size-small-max : @screen-size-small;
+
+@screen-size-medium-min : (@screen-size-small + 1);
+@screen-size-medium-max : @screen-size-medium;
+
+@screen-size-large-min: (@screen-size-medium + 1);
+@screen-size-large-max: @screen-size-large;
+
+@screen-size-xl-min: (@screen-size-large + 1);
+@screen-size-xl-max: @screen-size-xl;
+
+@screen-size-xxl-min: (@screen-size-xl + 1);
+@screen-size-xxl-max: @screen-size-xxl;
+
+@screen:                ~'only screen';
+
+@screen-sm :            ~'@{screen} and (max-width:@{screen-size-small-max})'; //0-640px范围的屏幕（小屏幕）
+@screen-sm-over:        ~'@{screen}'; //0px开始以上（小屏幕以上）
+
+@screen-md :            ~'@{screen} and (min-width:@{screen-size-medium-min}) and (max-width:@{screen-size-medium-max})';  //641-1024px开始以上（中屏幕）
+@screen-md-over :       ~'@{screen} and (min-width:@{screen-size-medium-min})';  //641px开始以上（中屏幕以上）
+
+@screen-lg :            ~'@{screen} and (min-width:@{screen-size-large-min}) and (max-width:@{screen-size-large-max})';  //1025-1280px开始以上（大屏幕）
+@screen-lg-over :       ~'@{screen} and (min-width:@{screen-size-large-min})';  //1025px开始以上（大屏幕以上）
+
+@screen-xl :            ~'@{screen} and (min-width:@{screen-size-xl-min}) and (max-width:@{screen-size-xl-max})';  //1281-1440px开始以上（大屏幕）
+@screen-xl-over :       ~'@{screen} and (min-width:@{screen-size-xl-min})';  //1281px开始以上（大屏幕以上）
+
+@screen-xxl :           ~'@{screen} and (min-width:@{screen-size-xxl-min}) and (max-width:@{screen-size-xxl-max})';  //1441-1920px开始以上（大屏幕）
+@screen-xxl-over :      ~'@{screen} and (min-width:@{screen-size-xxl-min})';  //1441px开始以上（大屏幕以上）
+
+/*间距大小定义*/
+@base-margin-xs : 0.5rem;
+@base-margin-sm : 1rem;
+@base-margin-md : 1.6rem;
+@base-margin-lg : 2rem;
+@base-margin-xl : 2.4rem;
+@base-margin-xxl : 3.6rem;
+@base-default-margin : @base-margin-md;
+
+/*字体大小定义*/
+@base-font-size-xs : 1.2rem;
+@base-font-size-sm : 1.4rem;
+@base-font-size-md: 1.6rem;
+@base-font-size-lg : 1.8rem;
+@base-font-size-xl : 2rem;
+@base-font-size-xxl : 2.4rem;
+@base-font-size-xxxl : 3.6rem;
+@base-default-font-size : @base-font-size-md;
+
+/*圆角大小定义*/
+@base-radius-size-xs : 0.2rem;
+@base-radius-size-sm : 0.5rem;
+@base-radius-size-md : 1rem;
+@base-radius-size-lg : 1.5rem;
+@base-radius-size-xl : 2rem;
+@base-radius-round : 100rem;
+@base-radius-circle : 100%;
+@base-default-radius-size : @base-radius-size-xs;
+
+/*fixed大小定义*/
+@base-fixed-size-xs : 0.5rem;
+@base-fixed-size-sm : 1rem;
+@base-fixed-size-md : 1.5rem;
+@base-fixed-size-lg : 2rem;
+@base-fixed-size-xl : 3rem;
+@base-default-fixed-size : 0;
+
+//按钮大小
+@base-btn-size-xs : 1.2rem;
+@base-btn-size-sm : 1.4rem;
+@base-btn-size-md : 1.6rem;
+@base-btn-size-lg : 2rem;
+@base-btn-size-xl : 2.4rem;
+@base-default-btn-size : @base-btn-size-md;
+
+/*底层参数定义*/
+@base-bg-color: inherit;
+@base-font-color: @gray-dark;
+@base-fontawesome-path : '../fonts/fontawesome';  //FontAwesome路径
+@base-font-family : '微软雅黑', 'FontAwesome';
+//"Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei",FreeSans,Arimo,"Droid Sans","wenquanyi micro hei","Hiragino Sans GB","Hiragino Sans GB W3",FontAwesome,sans-serif
+@base-font-size : @base-default-font-size;
+@base-line-height : 1.6;
+@base-font-weight : inherit;
+
+@link-color:   @color-blue;
+@link-hover-color:        darken(@link-color, 15%);

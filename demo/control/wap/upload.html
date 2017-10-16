@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传控件</title>
+    <link href="../../../compile/css/xui.css" rel="stylesheet" type="text/css" />
+    <script src="../../../compile/js/xui/xui.js" xui></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!--<script>
+        $(function () {
+            $('.xui-upload-btn').click(function () {
+                $(this).find("[type='file']").trigger('click');
+            })
+        })
+    </script>-->
+</head>
+<body class="xui-padding">
+    <h3>默认上传控件</h3>
+    <a class="xui-btn xui-upload-btn">
+        <i class="xui-icon-upload"></i>
+        上传按钮
+        <input type="file" multiple="multiple" />
+    </a>
+    <h3 class="xui-margin-top">自定义上传</h3>
+    <span class="xui-upload-btn">
+        <i class="xui-icon-upload"></i>
+        上传按钮
+        <input type="file" />
+    </span>
+
+    <h3 class="xui-margin-top">图片上传</h3>
+    <a type="button" class="xui-btn xui-btn-hole xui-btn-img-add xui-upload-btn xui-radius-md">
+        <input type="file" multiple="multiple" />
+    </a>
+</body>
+</html>

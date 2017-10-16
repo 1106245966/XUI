@@ -1,0 +1,146 @@
+.@{xui-prefix}btn{
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  text-align: center;
+  color:@gray-dark;
+  background-color: @gray-lighter;
+  border:none;
+  cursor: pointer;
+  vertical-align:middle;
+  -webkit-appearance: none;
+  -webkit-user-select : none;
+  outline: none;
+  border: 1px solid darken(@gray-lighter, 3%);
+  font-size: @base-default-btn-size;
+
+
+  .transition(all .2s linear);
+
+  &:hover, &:focus, &.@{xui-prefix}active{
+    background-color: darken(@gray-lighter, 10%);
+  }
+  &:active, &.@{xui-prefix}active{
+    .shadow(0 0.2rem 1rem darken(@gray-lighter, 20%) inset);
+  }
+  &:disabled, &.@{xui-prefix}disabled{
+    border-color: #e6e6e9 !important;
+    color: #dfdfdf !important;
+    background-color: #f8f8f8 !important;
+  }
+}
+a.@{xui-prefix}btn{
+  &:focus, &:hover{
+    color: inherit;
+  }
+}
+a.@{xui-prefix}btn-link{
+  &:focus, &:hover{
+    color: @link-hover-color;
+    background-color: transparent;
+    .shadow(none);
+  }
+  border: none;
+  background-color: transparent;
+  color: @link-color;
+  text-decoration: underline;
+}
+.@{xui-prefix}btn-block{
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+/*按钮颜色*/
+.btn-theme-color(@color-name, @color){
+  .@{xui-prefix}btn-@{color-name}, a.@{xui-prefix}btn-@{color-name}{
+    background-color: @color;
+    color:@white;
+    border: 1px solid darken(@color, 3%);
+    &:hover, &:focus, &.@{xui-prefix}active{
+      background-color: darken(@color, 10%);
+      color: @white;
+    }
+    &:active, &.@{xui-prefix}active{
+      .shadow(0 0.2rem 1rem darken(@color, 20%) inset);
+    }
+  }
+}
+.btn-theme-color(red, @color-red);
+.btn-theme-color(pink, @color-pink);
+.btn-theme-color(purple, @color-purple);
+.btn-theme-color(blue, @color-blue);
+.btn-theme-color(cyan, @color-cyan);
+.btn-theme-color(green, @color-green);
+.btn-theme-color(yellow, @color-yellow);
+.btn-theme-color(orange, @color-orange);
+
+/*按钮大小定义*/
+.@{xui-prefix}btn-xs{
+  font-size: @base-btn-size-xs;
+}
+.@{xui-prefix}btn-sm{
+  font-size: @base-btn-size-sm;
+}
+.@{xui-prefix}btn-md{
+  font-size: @base-btn-size-md;
+}
+.@{xui-prefix}btn-lg{
+  font-size: @base-btn-size-lg;
+}
+.@{xui-prefix}btn-xl{
+  font-size: @base-btn-size-xl;
+}
+
+/*主题*/
+
+//中间镂空主题
+.@{xui-prefix}btn.@{xui-prefix}btn-hole{
+  background-color: transparent;
+  border-width: 0.1rem;
+  &:hover, &:focus, &.@{xui-prefix}active{
+    background-color: transparent;
+  }
+  &:active, &.@{xui-prefix}active{
+    .shadow(none);
+    background-color: @gray-light;
+    color: @white;
+  }
+  &:disabled, &.@{xui-prefix}disabled{
+    background-color: transparent !important;
+  }
+}
+.btn-theme-hole-color(@color-name, @color){
+  .@{xui-prefix}btn.@{xui-prefix}btn-hole.@{xui-prefix}btn-@{color-name}{
+    color: @color;
+    &:active, &.@{xui-prefix}active{
+      background-color: @color;
+      color: @white;
+    }
+  }
+}
+.btn-theme-hole-color(red, @color-red);
+.btn-theme-hole-color(pink, @color-pink);
+.btn-theme-hole-color(purple, @color-purple);
+.btn-theme-hole-color(blue, @color-blue);
+.btn-theme-hole-color(cyan, @color-cyan);
+.btn-theme-hole-color(green, @color-green);
+.btn-theme-hole-color(yellow, @color-yellow);
+.btn-theme-hole-color(orange, @color-orange);
+
+//图片添加按钮
+.@{xui-prefix}btn.@{xui-prefix}btn-img-add{
+  background-color: transparent;
+  width: 8rem;
+  height:8rem;
+  border-width: 2px;
+  color: @gray-lighter;
+  vertical-align: middle;
+  text-align: center;
+  &:before{
+    content: "+";
+    font-size: 8rem;
+    line-height: 1;
+    display: inline-block;
+    margin-top: -1.5rem;
+  }
+}

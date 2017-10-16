@@ -1,0 +1,42 @@
+.@{xui-prefix}navbar{
+  height: 4.9rem;
+  background-color: #676767;
+  color: @white;
+
+  > a{
+    color: @white;
+    padding:0.3rem 0;
+    text-align: center;
+    height: 4.9rem;
+
+    > *{
+      display: block;
+      vertical-align: middle;
+      margin: 0.3rem auto;
+      line-height: 1;
+    }
+  }
+  .@{xui-prefix}navbar-lable{
+    font-size: 1.2rem;
+  }
+}
+.@{xui-prefix}navbar.@{xui-prefix}navbar-simple{
+  background-color: @white;
+  color: #cccccc;
+  border-top: 1px solid #cccccc;
+  > a{
+    color: #cccccc;
+
+    &.@{xui-prefix}active{
+      color: @color-green;
+    }
+  }
+}
+
+.@{xui-prefix}navbar.@{xui-prefix}navbar-plaintext{
+  font-size: 1.6rem;
+  > a{
+    padding: 0;
+    line-height: 4.9rem;
+  }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>瀑布流</title>
+    <link href="../compile/css/xui.css" rel="stylesheet" type="text/css" />
+    <script src="../compile/js/xui/xui.js" xui="masonry"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <style>
+        .container-fluid {
+            padding: 20px;
+        }
+        .box {
+            margin-bottom: 20px;
+            float: left;
+            width: 220px;
+        }
+        .box img {
+            max-width: 100%
+        }
+    </style>
+    <script>
+        $(function() {
+            var $container = $('#masonry');
+            $container.imagesLoaded(function() {
+                $container.masonry({
+                    itemSelector: '.box',
+                    gutter: 20,
+                    isAnimated: true
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="masonry" class="container-fluid">
+        <div class="box"><img src="http://images.china.cn/attachement/jpg/site1000/20140910/001ec9591e621579f4bc06.jpg"></div>
+        <div class="box"><img src="http://korea.people.com.cn/mediafile/201403/26/F201403261546202302528829.jpg"></div>
+        <div class="box"><img src="http://img1.gtimg.com/ent/pics/hv1/28/65/1487/96708778.jpg"></div>
+        <div class="box"><img src="http://image.xinmin.cn/2013/05/08/20130508173712575110.jpg"></div>
+        <div class="box"><img src="http://img1.cache.netease.com/catchpic/8/8D/8D35A7997FEBDE285D167BAD2466AEA7.jpg"></div>
+        <div class="box"><img src="http://images.china.cn/attachement/jpg/site1000/20140910/001ec9591e621579f4bc06.jpg"></div>
+        <div class="box"><img src="http://korea.people.com.cn/mediafile/201403/26/F201403261546202302528829.jpg"></div>
+        <div class="box"><img src="http://img1.gtimg.com/ent/pics/hv1/28/65/1487/96708778.jpg"></div>
+        <div class="box"><img src="http://image.xinmin.cn/2013/05/08/20130508173712575110.jpg"></div>
+        <div class="box"><img src="http://img1.cache.netease.com/catchpic/8/8D/8D35A7997FEBDE285D167BAD2466AEA7.jpg"></div>
+    </div>
+</body>
+</html>

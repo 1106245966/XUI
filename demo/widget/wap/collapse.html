@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>折叠面板</title>
+    <link href="../../../compile/css/xui.css" rel="stylesheet" type="text/css" />
+    <script src="../../../compile/js/xui/xui.js" xui></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body style="background-color: #f0f0f0;">
+    <h3 class="xui-margin-top">默认折叠面板</h3>
+    <div class="xui-collapse" xui-collapse>
+        <div class="xui-collapse-header xui-fc xui-padding-vertical-sm">
+            <span class="xui-fl xui-collapse-header-title xui-margin-left-sm">标题</span>
+            <i class="xui-fr xui-collapse-header-icon xui-margin-right-sm"></i>
+        </div>
+        <div class="xui-collapse-panel xui-padding" xui-collapse-panel>
+            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+        </div>
+    </div>
+
+    <h3 class="xui-margin-top">多层折叠</h3>
+    <div class="xui-collapse" xui-collapse>
+        <div class="xui-collapse-header xui-fc xui-padding-vertical-sm">
+            <span class="xui-fl xui-collapse-header-title xui-margin-left-sm">标题</span>
+            <i class="xui-fr xui-collapse-header-icon xui-margin-right-sm"></i>
+        </div>
+        <div class="xui-collapse-panel xui-padding-left" xui-collapse-panel>
+            <div class="xui-collapse" xui-collapse>
+                <div class="xui-collapse-header xui-fc xui-padding-vertical-sm">
+                    <span class="xui-fl xui-collapse-header-title xui-margin-left-sm">标题2</span>
+                    <i class="xui-fr xui-collapse-header-icon xui-margin-right-sm"></i>
+                </div>
+                <div class="xui-collapse-panel" xui-collapse-panel>
+                    <ul class="xui-list xui-list-ios" >
+                        <li>
+                            <a class="xui-list-title xui-text-truncate" href="#">标题标题标题</a>
+                            <div class="xui-list-right xui-margin-left-children-sm">
+                                <i class="xui-icon-angle-right"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="xui-list-title xui-text-truncate" href="#">标题标题标题</a>
+                            <div class="xui-list-right xui-margin-left-children-sm">
+                                <span class="xui-badge xui-badge-red xui-round">1</span>
+                                <i class="xui-icon-angle-right"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="xui-list-title xui-text-truncate" href="#">标题标题标题</a>
+                            <div class="xui-list-right xui-margin-left-children-sm">
+                                <span class="xui-badge xui-badge-blue xui-round">1</span>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="xui-list-title xui-text-truncate">标题标题标题</a>
+                            <div class="xui-list-right xui-margin-left-children-sm">
+                                <label class="xui-checkbox-switch xui-margin-top-xs">
+                                    <input type="checkbox">
+                                    <span class="xui-checkbox-icon"></span>
+                                </label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

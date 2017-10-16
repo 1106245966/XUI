@@ -1,0 +1,97 @@
+.@{xui-prefix}list{
+  list-style: none;
+  > li{
+    border-bottom: 1px solid #ededed;
+    position: relative;
+    > a{
+      display: block;
+    }
+  }
+  .@{xui-prefix}list-item-dated{
+    .@{xui-prefix}list-title{
+      padding-right: 8rem;
+    }
+    .@{xui-prefix}list-time{
+      position: absolute;
+      display: inline-block;
+      top:50%;
+      right: 1rem;
+      font-size: 1.4rem;
+      color: #cccccc;
+      .transform(translateY(-50%));
+    }
+  }
+  .@{xui-prefix}list-title{
+    display: block;
+  }
+  .@{xui-prefix}list-img{
+    display: block;
+  }
+
+  .@{xui-prefix}list-summary{
+    font-size: 1.2rem;
+    color: #8c8c8c;
+  }
+}
+
+.@{xui-prefix}list.@{xui-prefix}list-ios{
+  background-color: @white;
+  border: 1px solid #dedce2;
+  border-left: none;
+  border-right: none;
+  > li{
+    padding-left: 1.5rem;
+    border: none;
+
+    &:active{
+      background-color: #eeeeee;
+    }
+    &:first-child{
+      .@{xui-prefix}list-title{
+        border: none;
+      }
+    }
+  }
+
+  a{
+    color: @gray-darker;
+  }
+  .@{xui-prefix}list-title{
+    padding:1.1rem 0;
+    border-top: 1px solid #ededed;
+  }
+  .@{xui-prefix}list-right,
+  .@{xui-prefix}list-right.@{xui-prefix}checkbox-icon,
+  .@{xui-prefix}list-right.@{xui-prefix}radio-icon{
+    position: absolute;
+    display: inline-block;
+    top:50%;
+    right: 1.5rem;
+    .transform(translateY(-50%));
+  }
+  .@{xui-prefix}icon-angle-right{
+    color: #cccccc;
+  }
+}
+
+.@{xui-prefix}list.@{xui-prefix}list-card{
+  > li{
+    background-color: @white;
+    border-top: 1px solid #dedce2;
+    border-bottom: 1px solid #dedce2;
+
+    &:active{
+      background-color: #fafafa;
+    }
+  }
+  .@{xui-prefix}list-time{
+    font-size: 1.2rem;
+    color: #cccccc;
+  }
+  .@{xui-prefix}list-top{
+    border-bottom: 1px solid #ebebeb;
+  }
+  .@{xui-prefix}list-summary{
+    font-size: 1.4rem;
+  }
+}
