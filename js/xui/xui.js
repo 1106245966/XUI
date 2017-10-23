@@ -1,3 +1,10 @@
+/**
+ * =====================================================
+ * XUI - http://xui.xfeng-studio.com/
+ * version: 1.0.1
+ * email:1106245966@qq.com
+ * =====================================================
+ */
 function includeCss(path) {
     document.write('<link href="' + path + '" rel="stylesheet" type="text/css"' + xui.scriptAttrStr + ' />');
 }
@@ -65,7 +72,7 @@ function include(path) {
     //注册
     window['xui'] =  {
         baseURL : baseURL,
-        version : '1.0.0',
+        version : '1.0.1',
         eventDelegate : 'body',
         scriptAttr : xuiAttr,
         scriptAttrStr : xuiAttrStr

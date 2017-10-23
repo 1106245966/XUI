@@ -36,5 +36,26 @@ $(function () {
             number += step;
             input.val(number);
             self.triggerHandler('xui.numbox.plus.after', [number]);
+        }).on('blur', "[xui-numbox='input']", function () {
+            var self = $(this);
+            var oldValue = self.val();
+            var max = self.attr('max') ? parseInt(self.attr('max')) : null;
+            var min = self.attr('min') ? parseInt(self.attr('min')) : null;
+            if(!/^\d+$/.test(self.val())){
+                self.val((min) ? min : 1);
+            }
+
+            var number = parseInt(self.val());
+            if(max && max < number){
+                self.val(max);
+            }
+
+            if(min && min > number){
+                self.val(min);
+            }
+            //在值发生改变时才触发事件
+            if(oldValue !== self.val()){
+                self.triggerHandler('xui.numbox.input.change', [self.val()]);
+            }
         });
 });

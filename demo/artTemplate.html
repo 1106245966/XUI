@@ -49,6 +49,7 @@
             var data = {
                 title: '基本例子',
                 title2: '基本例子2',
+                value : '1',
                 isAdmin: true,
                 textCallback : function (value) {
                     console.log(value);
@@ -89,6 +90,18 @@
         {{each list2 as value}}
             {{test value=(value) /}}
         {{/each}}
+        <div class="xui-input-group">
+            <!-- 设置“xui-numbox”增强属性值“minus”，然后就能操控对应“xui-numbox”增强属性值为“input”的文本框 -->
+            <span class="xui-input-group-btn" xui-numbox="minus">
+                <button class="xui-btn xui-icon-minus"></button>
+            </span>
+            <!-- 设置“xui-numbox”增强属性值“input”，被操控文本框值 -->
+            <input class="xui-text-center" xui-numbox="input" type="number" value="{{value}}">
+            <!-- 设置“xui-numbox”增强属性值“plus”，然后就能操控对应“xui-numbox”增强属性值为“input”的文本框 -->
+            <span class="xui-input-group-btn" xui-numbox="plus">
+                <button class="xui-btn xui-icon-plus"></button>
+            </span>
+        </div>
     </script>
 </body>
 </html>

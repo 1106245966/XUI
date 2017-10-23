@@ -10,4 +10,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/*兼容IE*/
+html[class*='@{xui-prefix}browser-ie']{
+  [class*='@{xui-prefix}icon-']:before {
+    font: normal normal normal 16px/1 FontAwesome;
+  }
+}
+
 @import "icons/fontawesome.less";
